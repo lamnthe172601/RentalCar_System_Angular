@@ -1,0 +1,26 @@
+<h2>Your Bookings</h2>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Car ID</th>
+      <th>Rental Date</th>
+      <th>Return Date</th>
+      <th>Total Amount</th>
+      <th>Status</th>
+      <th>Feedback</th>
+      <th>Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let booking of bookings">
+      <td>{{ booking.carId }}</td>
+      <td>{{ booking.rentalDate | date: 'shortDate' }}</td>
+      <td>{{ booking.returnDate ? (booking.returnDate | date: 'shortDate') : 'N/A' }}</td>
+      <td>{{ booking.totalAmount | currency }}</td>
+      <td>{{ booking.status }}</td>
+      <td>{{ booking.feedback ? booking.feedback : 'No feedback' }}</td>
+      <td>{{ booking.rating ? booking.rating : 'No rating' }}</td>
+    </tr>
+  </tbody>
+</table>
